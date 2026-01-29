@@ -54,22 +54,3 @@ void MatchingEngine :: process_order(Order& order){
 }
 
 }
-void MatchingEngine::cancel(uint64_t order_id) {
-    for (auto& [price, level] : book.bids) {
-        for (auto it = level.orders.begin(); it != level.orders.end(); ++it) {
-            if ((*it)->order_id == order_id) {
-                level.orders.erase(it);
-                return;
-            }
-        }
-    }
-
-    for (auto& [price, level] : book.asks) {
-        for (auto it = level.orders.begin(); it != level.orders.end(); ++it) {
-            if ((*it)->order_id == order_id) {
-                level.orders.erase(it);
-                return;
-            }
-        }
-    }
-}

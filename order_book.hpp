@@ -5,29 +5,25 @@
 
 struct OrderBook
 {
-    std::map<double,PriceLevel,std::greater<double>> bids;// Key: price, Value: PriceLevel
-    std::map<double,PriceLevel ,std::less<double>> asks; // Key: price, Value: PriceLevel      
+    std::map<double,uint64_t,std::greater<double>> bids;// Key: price, Value: PriceLevel
+    std::map<double,uint64_t ,std::less<double>> asks; // Key: price, Value: PriceLevel      
     void print() const {
-        std::cout << "\n---Order Book---\n";
+        std::cout << "\n<-------Order Book------->\n";
         std::cout << "Bids:\n";
-        for (const auto &[price, level] : bids)
+        std::cout << "Price" << "\t" << "Quantity" << "\n";
+        for (const auto &[price, quantity] : bids)
         {
-            std::cout << "Price: " << price << ", Orders: ";
-            for (const auto &order : level.orders)
-            {
-                std::cout << order->order_id << " ";
-            }
-            std::cout << "\n";
+            std::cout << price << "\t" << quantity <<"\n";
         }
 
-    std::cout << "Asks:\n";
-    for (const auto& [price, level] : asks) {
-        std::cout << "Price: " << price << ", Orders: ";
-        for (const auto& order : level.orders) {
-            std::cout << order->order_id << " ";
+        std::cout << "Asks:\n";
+        std::cout << "Price" << "\t" << "Quantity" << "\n";
+        for (const auto& [price, quantity] : asks) 
+        {
+            std::cout << price << "\t" << quantity <<"\n";
+
         }
-        std::cout << "\n";
-        }
+        std::cout << "\n<-------Order Book End------->\n";
     }
 };
 
