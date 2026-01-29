@@ -1,0 +1,16 @@
+What I am coding? There is an orderbook for a single stock and once the order is given for some quantity that is buy or sell , the order is executed and the orderbook is updated. Nothing fancy basic orderbook and order execution and return of important things to look at.
+
+Order:
+  id: who it is
+  side (BUY / SELL)
+  price
+  quantity
+  timestamp
+
+PriceLevel:
+  price
+  queue of orders (FIFO)
+
+OrderBook:
+  bids (sorted descending)
+  asks (sorted ascending)
