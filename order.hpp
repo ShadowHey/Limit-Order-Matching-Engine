@@ -10,6 +10,6 @@ enum class Side
 struct Order
 {
     Side side;
-    double price;
+    uint64_t price;
     uint64_t quantity;
 };
